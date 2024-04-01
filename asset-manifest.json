@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-profile/static/css/main.12aea682.css",
+    "main.js": "/react-profile/static/js/main.f13cf3fc.js",
+    "static/js/453.20952338.chunk.js": "/react-profile/static/js/453.20952338.chunk.js",
+    "static/media/ProfilePhoto-removebg-preview.png": "/react-profile/static/media/ProfilePhoto-removebg-preview.cce0fea8502cda7b3936.png",
+    "index.html": "/react-profile/index.html",
+    "main.12aea682.css.map": "/react-profile/static/css/main.12aea682.css.map",
+    "main.f13cf3fc.js.map": "/react-profile/static/js/main.f13cf3fc.js.map",
+    "453.20952338.chunk.js.map": "/react-profile/static/js/453.20952338.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.12aea682.css",
+    "static/js/main.f13cf3fc.js"
+  ]
+}
