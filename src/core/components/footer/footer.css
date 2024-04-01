@@ -1,0 +1,55 @@
+.footer {
+  padding: 60px 50px 150px;
+  background-color: #36454f;
+  padding-bottom: 20px;
+  width: 150vh;
+}
+.title {
+  color: #ddd0c8;
+  font-family: Trattatello;
+  font-size: 50px;
+  padding-left: 100px;
+}
+.icons {
+  padding-top: 6px;
+  padding-left: 100px;
+}
+.imgBg {
+  background-color: #36454f;
+  width: 50vh;
+}
+.contPadding {
+  margin-top: 1px;
+  padding: 50px 150px 50px;
+  background-color: #36454f;
+}
+.getinToch {
+  padding-left: 100px;
+  font-family: Trattatello;
+  color: #ddd0c8;
+  font-size: 50px;
+}
+.submitBtn {
+  background-color: #ddd0c8;
+  color: #36454f;
+  border: 4px solid #ddd0c8;
+}
+.submitBtn:hover {
+  background-color: #36454f;
+  color: #ddd0c8;
+  border: 4px solid #ddd0c8;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+  background-color: #36454f;
+  border: 2px solid #ddd0c8;
+  color: #ddd0c8;
+  font-size: 22px;
+}
+input,
+textarea {
+  background-color: #ddd0c8;
+  font-size: 22px;
+  padding: 2px;
+}

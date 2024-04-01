@@ -1,0 +1,17 @@
+.navBar {
+    background-color: #36454f;
+    min-height: 80px;
+    padding: 0 150px;
+  }
+  .logo {
+    font-size: 50px;
+    color: #ddd0c8;
+    font-family: Trattatello;
+  }
+  .navButton {
+    color: #ddd0c8;
+    font-size: 20px;
+  }
+  .btHov.btHov:hover {
+    color: #36454f;
+  }

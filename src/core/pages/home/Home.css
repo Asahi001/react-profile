@@ -1,0 +1,62 @@
+.body {
+  margin-top: 1px;
+  background-color: #36454f;
+  padding: 0 50px;
+}
+.bodyHeading {
+  font-size: 100px;
+  color: #ddd0c8;
+}
+.align {
+  font-family: Trattatello;
+  padding-top: 50px;
+  display: flex;
+  align-items: baseline;
+}
+.desc {
+  font-size: 24px;
+  color: #ddd0c8;
+}
+.heading2 {
+  font-family: Trattatello;
+  font-size: 60px;
+  color: #ddd0c8;
+}
+.cardHeading {
+  padding: 8px;
+  font-size: 23px;
+  color: #ddd0c8;
+}
+.card:hover {
+  color: #36454f;
+  -webkit-transition: width 0.25s, height 0.25s, background-color 0.25s;
+  transition: width 3s, height 0.25s, background-color 0.25s;
+}
+.caseStudies {
+  padding: 0 50px;
+  background-color: #36454f;
+  padding-bottom: 20px;
+}
+.rev {
+  display: flex;
+  background-color: #ddd0c8;
+  color: #36454f;
+}
+.rev:hover {
+  background-color: #36454f;
+  color: #ddd0c8;
+  border: 4px solid #ddd0c8;
+  cursor: pointer;
+}
+.intro {
+  padding-bottom: 100px;
+  background-color: #36454f;
+}
+.intoHeading {
+  display: flex;
+  justify-content: center;
+  padding-top: 150px;
+  font-family: Trattatello;
+  font-size: 60px;
+  color: #ddd0c8;
+}
