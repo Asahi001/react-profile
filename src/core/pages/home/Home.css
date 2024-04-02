@@ -14,7 +14,7 @@
   align-items: baseline;
 }
 .desc {
-  font-size: 24px;
+  /* font-size: 24px; */
   color: #ddd0c8;
 }
 .heading2 {
@@ -33,7 +33,7 @@
   transition: width 3s, height 0.25s, background-color 0.25s;
 }
 .caseStudies {
-  padding: 0 50px;
+  padding: 20px 50px;
   background-color: #36454f;
   padding-bottom: 20px;
 }

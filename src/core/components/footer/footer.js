@@ -1,14 +1,14 @@
-import React, {useState} from "react";
-import './footer.css'
+import React, { useState } from "react";
+import "./footer.css";
 
 export default function Footer() {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [help, setHelp] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [help, setHelp] = useState("");
   return (
     <>
       <div
-        className="grid grid-cols-2 grid-flow-row gap-4 contPadding"
+        className="grid lg:grid-cols-2 md:grid-cols-1 grid-flow-row gap-4 contPadding"
         id="bottom"
       >
         <div>
@@ -112,9 +112,9 @@ export default function Footer() {
             © 2024 Jaffer Ali
           </p>
         </div>
-        <div className="imgBg">
-          {/* <img src={minGif} alt="No Image Found" className="h-full w-full" /> */}
-        </div>
+        {/* <div className="imgBg">
+          <img src={minGif} alt="No Image Found" className="h-full w-full" />
+        </div> */}
       </div>
     </>
   );

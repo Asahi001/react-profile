@@ -3,7 +3,6 @@ import "./Projects.css";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 
-
 export default function Projects() {
   const projects = [
     {
@@ -58,26 +57,31 @@ export default function Projects() {
   ];
   return (
     <>
-    <Header />
-    <div className="body">
-      <div className="italic heading2 mb-6">Projects</div>
-      <div className="grid grid-cols-4 grid-flow-row gap-4">
-        {projects.map((ele, index) => (
-          <div
-            className="border-4 border-zinc-200 p-4 text-xl text-zinc-400 card hover:cursor-pointer hover:bg-zinc-200"
-            key={index}
-          >
-            {
-              <div className="text-2xl font-bold">
-                {ele.year} - {ele.role}
+      <Header />
+      <div className="body">
+        <div className="italic heading2 pb-16">Projects</div>
+        <div className="grid lg:grid-cols-4 md:grid-cols-1 grid-flow-row gap-4">
+          {projects.map((ele, index) => (
+            <div
+              className="border-4 border-zinc-200 p-4 text-xl text-zinc-400 card hover:cursor-pointer hover:bg-zinc-200"
+              key={index}
+            >
+              {
+                <div className="lg:text-2xl md:text-4xl font-bold">
+                  {ele.year} - {ele.role}
+                </div>
+              }{" "}
+              <br />
+              <div className="lg:text-2xl md:text-4xl">Desc: {ele.desc}</div>
+              <br />
+              <div className="lg:text-2xl md:text-4xl">
+                Technologies: {ele.technologies}{" "}
               </div>
-            }{" "}
-            <br /> Desc: {ele.desc} <br /> Technologies: {ele.technologies}{" "}
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-    <Footer />
+      <Footer />
     </>
   );
 }

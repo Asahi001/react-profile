@@ -45,35 +45,40 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="body flex">
-        <div className="pt-4 w-3/5">
+      <div className="body flex lg:flex-row md:flex-col">
+        <div className="pt-4 lg:w-3/5 md:w-full">
           <div className="flex space-x-4 align">
             <div className="italic bodyHeading ">Jaffer Ali</div>
             {/* <div className="text-2xl text-blue-400">[They / them]</div> */}
           </div>
-          <div className="desc">
+          <div className="desc lg:text-3xl md:text-4xl">
             UI/UX Developer, Creating Web Pages for the UI/UX Designes according
             to the Customer need and specification.
           </div>
         </div>
-        <div className="pt-8 pl-16">
+        <div className="pt-8 pl-16 md:w-1/2 md:h-1/2">
           <img src={ProfilepPic} alt="No Image Found"></img>
         </div>
       </div>
       <div className="caseStudies -mt-16">
-        <div className="italic heading2 mb-6">Projects</div>
-        <div className="grid grid-cols-4 grid-flow-row gap-4">
+        <div className="italic heading2 mb-6 md:pt-26 lg:pt-6">Projects</div>
+        <div className="grid lg:grid-cols-4 grid-flow-row gap-4 md:grid-cols-1">
           {projects.map((ele, index) => (
             <div
               className="border-4 border-zinc-200 p-4 text-xl text-zinc-400 card hover:cursor-pointer hover:bg-zinc-200"
               key={index}
             >
               {
-                <div className="text-2xl font-bold">
+                <div className="lg:text-2xl md:text-4xl font-bold">
                   {ele.year} - {ele.role}
                 </div>
               }{" "}
-              <br /> Desc: {ele.desc} <br /> Technologies: {ele.technologies}{" "}
+              <br />
+              <div className="lg:text-2xl md:text-4xl">Desc: {ele.desc}</div>
+              <br />
+              <div className="lg:text-2xl md:text-4xl">
+                Technologies: {ele.technologies}{" "}
+              </div>
             </div>
           ))}
         </div>
@@ -88,7 +93,7 @@ export default function Home() {
               });
               navigate("/projects");
             }}
-            className=" flex text-4xl align-middle justify-center w-full border-4 border-zinc-200 p-4 text-xl text-zinc-400 card hover:cursor-pointer hover:bg-zinc-200"
+            className=" flex md:text-xl align-middle justify-center w-full border-4 border-zinc-200 p-4 lg:text-xl text-zinc-400 card hover:cursor-pointer hover:bg-zinc-200"
           >
             {"See More >"}{" "}
           </button>
@@ -96,7 +101,7 @@ export default function Home() {
       </div>
       <div className="intro">
         <div className="italic intoHeading">Who Is Jaffer?</div>
-        <div className="space-y-6">
+        <div className="space-y-6 lg:text-2xl md:text-4xl">
           {whoLines.map((ele, index) => (
             <p key={index} className="px-40 text-2xl text-zinc-400">
               {ele}

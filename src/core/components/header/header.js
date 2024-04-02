@@ -64,7 +64,7 @@ export default function Header() {
       <div className="navigation space-x-6 navButton self-center">
         {navigation.map((ele, index) => (
           <button
-            className="border-2 p-3 rounded-md hover:bg-zinc-200 btHov"
+            className="border-2 p-3 rounded-md hover:bg-zinc-200 btHov lg:w-18 md:w-18"
             key={index}
             onClick={() => handelNavClick(ele.name)}
           >
