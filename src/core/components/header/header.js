@@ -7,8 +7,9 @@ export default function Header() {
   const navigate = useNavigate();
   
   const navigation = [
+    { name: "Home", href: "#" },
     { name: "Resume", href: "#" },
-    { name: "Contact Me", href: "#bottom" },
+    { name: "Contact Me", href: "#" },
   ];
   const handelNavClick = (key) => {
     if (key === "Contact Me") {
@@ -32,6 +33,8 @@ export default function Header() {
       link.click();
       window.URL.revokeObjectURL(data);
       link.remove();
+    } else if (key === "Home") {
+      navigate("/")
     }
   };
 

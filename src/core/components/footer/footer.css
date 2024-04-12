@@ -53,3 +53,7 @@ textarea {
   font-size: 22px;
   padding: 2px;
 }
+.messagebox{
+  background-color: #36454f;
+  padding: 0 58px;
+}

@@ -58,7 +58,7 @@ export default function Projects() {
   return (
     <>
       <Header />
-      <div className="body">
+      <div className="body lg: pb-16">
         <div className="italic heading2 pb-16">Projects</div>
         <div className="grid lg:grid-cols-4 md:grid-cols-1 grid-flow-row gap-4">
           {projects.map((ele, index) => (

@@ -5,6 +5,7 @@ export default function Footer() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [help, setHelp] = useState("");
+  const [showMsg, setShowMsg] = useState(false);
   return (
     <>
       <div
@@ -46,7 +47,12 @@ export default function Footer() {
             ></textarea>
             <button
               type="button"
-              onClick={() => {}}
+              onClick={() => {
+                setShowMsg(true);
+                setTimeout(() => {
+                  setShowMsg(false);
+                }, 20000);
+              }}
               key="contactMe"
               className="w-40 text-2xl p-2 rounded-md submitBtn"
             >
@@ -55,6 +61,32 @@ export default function Footer() {
           </form>
         </div>
       </div>
+      {showMsg && (
+        <div className="flex messagebox">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="46"
+            height="46"
+            viewBox="0 0 32 32"
+            fill="orange"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-alert-circle"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <span className="text-2xl pl-24 pr-8 text-orange-400 w-full">
+            Thank you for reaching out to us, we are sorry for the inconvenience
+            caused as this service is still Build in progress, please post us
+            your insight via Mail link from social links, we deeply value your
+            insights. once again sorry for the inconvenience caused.
+          </span>
+        </div>
+      )}
       <div className="flex">
         <div className="footer">
           <div className="title italic">My Social Links</div>
