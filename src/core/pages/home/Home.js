@@ -38,16 +38,16 @@ export default function Home() {
     },
     {
       name: "Snake Game",
-      technologies: "React JS, HTML5, Tailwind CSS",
+      technologies: "Python, Turtle, Canvas, Pandas",
       year: "2022",
       desc: "Game of snake in which whem we succesfullly eat the food it grows until the game over if we touch boundary or touch its own body.",
-      role: "A game built in python with bounday and taill bite conditions with Turtle library",
+      role: "A game built in python with bounday and tail bite conditions with Turtle library",
     },
     {
       name: "Geography quiz",
-      technologies: "React JS, HTML5, Tailwind CSS",
+      technologies: "Python, Turtle, Canvas, Pandas",
       year: "2022",
-      desc: "Game in whivh we will guess the state of the map and if gueesed correct it will display on the map",
+      desc: "Game in which we will guess the state of the map and if guessed correct it will display on the map",
       role: "A quiz game with python canvas and Turtle",
     },
   ];
