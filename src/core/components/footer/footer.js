@@ -101,7 +101,7 @@ export default function Footer() {
                 postDetails();
               }}
               key="contactMe"
-              className="w-40 text-2xl p-2 rounded-md submitBtn"
+              className="lg:w-40 md:w-full text-2xl p-2 rounded-md submitBtn"
             >
               Submit
             </button>
