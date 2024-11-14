@@ -138,7 +138,7 @@ export default function Footer() {
         </div>
       )}
       <div>
-        <div className="footer grid lg:grid-cols-4 md:grid-cols-3">
+        <div className="footer grid grid-cols-4 ">
           <div className="col-span-3">
             <div className="title italic">My Social Links</div>
             <div className="icons flex space-x-4">
