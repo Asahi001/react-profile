@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./footer.css";
 import axios from "axios";
 import Loader from "../loader";
 import Logo from "../../assets/images/Logo.png";
 
 export default function Footer() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [help, setHelp] = useState("");
+  const [enableSubmit, setEnableSubmit] = useState(false);
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    help: "",
+    touched: { name: false, email: false },
+  });
   const [showMsg, setShowMsg] = useState(false);
   const [message, setMsg] = useState({});
   const [loading, setLoading] = useState(false);
@@ -20,9 +24,9 @@ export default function Footer() {
     setLoading(true);
     await axios
       .post(`${urlUsed}/details`, {
-        name: name,
-        email: email,
-        message: help,
+        name: formState?.name,
+        email: formState?.email,
+        message: formState?.help,
       })
       .then((response) => {
         setTimeout(() => {
@@ -33,9 +37,12 @@ export default function Footer() {
           status: "success",
           msg: "We have sucessfully recieved your message, Thank you for reaching out to us",
         });
-        setHelp("");
-        setEmail("");
-        setName("");
+        setFormState({
+          name: "",
+          email: "",
+          help: "",
+          touched: { name: false, email: false },
+        });
         setTimeout(() => {
           setShowMsg(false);
         }, 3000);
@@ -55,6 +62,23 @@ export default function Footer() {
         }, 3000);
       });
   }
+
+  function checkForVlidation() {
+    setEnableSubmit(
+      formState?.name &&
+        formState?.email &&
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState?.email)
+    );
+  }
+
+  useEffect(() => {
+    checkForVlidation();
+  }, [formState]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    postDetails();
+  };
   return (
     <>
       {loading && <Loader />}
@@ -71,37 +95,72 @@ export default function Footer() {
           </div>
         </div>
         <div>
-          <form className="space-y-4">
-            <input
-              type="text"
-              value={name}
-              placeholder="Name"
-              onChange={(e) => setName(e.target.value)}
-              className="w-full pl-4 rounded-md"
-            />
-            <input
-              type="email"
-              value={email}
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full pl-4 rounded-md"
-            />
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <input
+                type="text"
+                value={formState?.name}
+                placeholder="Name"
+                onChange={(e) =>
+                  setFormState({ ...formState, name: e.target.value })
+                }
+                onBlur={(e) => {
+                  setFormState({
+                    ...formState,
+                    touched: { ...formState?.touched, name: true },
+                  });
+                }}
+                className="w-full pl-4 rounded-md"
+              />
+              {formState?.touched?.name && !formState?.name && (
+                <span className="text-red-500 text-sm">Required *</span>
+              )}
+            </div>
+            <div>
+              <input
+                type="email"
+                value={formState?.email}
+                placeholder="Email"
+                onChange={(e) =>
+                  setFormState({ ...formState, email: e.target.value })
+                }
+                onBlur={(e) => {
+                  setFormState({
+                    ...formState,
+                    touched: { ...formState?.touched, email: true },
+                  });
+                }}
+                className="w-full pl-4 rounded-md"
+              />
+              {formState?.touched?.email && !formState?.email && (
+                <span className="text-red-500 text-sm">Required *</span>
+              )}
+              {formState?.touched?.email &&
+                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState?.email) && (
+                  <span className="text-red-500 text-sm">
+                    Please enter valid Email address
+                  </span>
+                )}
+            </div>
             <textarea
               name="help"
               cols="40"
               rows="4"
               className="w-full pl-4 px-2 rounded-md"
-              value={help}
+              value={formState?.help}
               placeholder="How can I Help?"
-              onChange={(e) => setHelp(e.target.value)}
+              onChange={(e) =>
+                setFormState({ ...formState, help: e.target.value })
+              }
             ></textarea>
             <button
-              type="button"
-              onClick={() => {
-                postDetails();
-              }}
-              key="contactMe"
-              className="lg:w-40 md:w-full text-2xl p-2 rounded-md submitBtn"
+              type="submit"
+              className={`lg:w-40 md:w-full text-2xl p-2 rounded-md ${
+                !enableSubmit
+                  ? "bg-gray-500 hover:cursor-not-allowed"
+                  : "bg-slate-300 hover:cursor-pointer"
+              }`}
+              disabled={!enableSubmit}
             >
               Submit
             </button>
