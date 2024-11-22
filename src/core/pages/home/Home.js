@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Home.css";
-import ProfilepPic from "../../assets/images/ProfilePhoto-removebg-preview.png";
 import Logo from "../../assets/images/Logo.png";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/header/header";
@@ -15,8 +14,10 @@ import AngularLogo from "../../assets/images/angular.png";
 import ReactLogo from "../../assets/images/react.png";
 import AglLogo from "../../assets/images/apg.png";
 import PyLogo from "../../assets/images/python.png";
+import Loader from "../../components/loader";
 
 export default function Home() {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const screen = useContext(ScreenResContext);
   const projects = [
@@ -27,20 +28,20 @@ export default function Home() {
       desc: "This was the personal project done by my self interest for learning purpose.",
       role: "Portfolio Web site for profile",
     },
-    {
-      name: "Client Portal",
-      technologies: "Angular, Botstrap CSS, HTML5, CSS3",
-      year: "2023",
-      desc: "Member of development team who build the client portal user interface.",
-      role: "A client portal developed during my service",
-    },
-    {
-      name: "Client Portal",
-      technologies: "React JS, MongoDB, Apollo GraphQL",
-      year: "2022",
-      desc: "Member of development team who build the client portal UI/UX.",
-      role: "A client portal developed during my service",
-    },
+    // {
+    //   name: "Client Portal",
+    //   technologies: "Angular, Botstrap CSS, HTML5, CSS3",
+    //   year: "2023",
+    //   desc: "Member of development team who build the client portal user interface.",
+    //   role: "A client portal developed during my service",
+    // },
+    // {
+    //   name: "Client Portal",
+    //   technologies: "React JS, MongoDB, Apollo GraphQL",
+    //   year: "2022",
+    //   desc: "Member of development team who build the client portal UI/UX.",
+    //   role: "A client portal developed during my service",
+    // },
     {
       name: "Calculator",
       technologies: "React JS, HTML5, Tailwind CSS",
@@ -153,20 +154,20 @@ export default function Home() {
           </div>
         </div>
         {screen === "Des" ? (
-          <div className="flex items-center flex-col gap-16">
-            <img src={Logo} alt="No Image Found" className="w-1/3 h-auto"></img>
-            <img
+          <div className="flex items-center justify-center gap-16">
+            <img src={Logo} alt="No Image Found" className="w-1/2 h-auto"></img>
+            {/* <img
               src={ProfilepPic}
               alt="No Image Found"
               className="w-3/5 h-auto"
-            ></img>
+            ></img> */}
           </div>
         ) : (
           <></>
         )}
       </div>
 
-      <div className="caseStudies -mt-16 relative group">
+      <div className="-mt-16 caseStudies relative group">
         <div className="italic heading2 mb-6 md:pt-26 lg:pt-6">Projects</div>
         <div className="grid lg:grid-cols-4 grid-flow-row gap-4 md:grid-cols-1">
           {projects.map((ele, index) => (
@@ -192,12 +193,16 @@ export default function Home() {
           <button
             type="button"
             onClick={() => {
-              window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: "smooth",
-              });
-              navigate("/projects");
+              setLoading(true);
+              setTimeout(() => {
+                setLoading(false);
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                });
+                navigate("/projects");
+              }, 1000);
             }}
             className=" flex md:text-xl align-middle justify-center w-full border-4 border-zinc-200 p-4 lg:text-xl text-zinc-400 card hover:cursor-pointer hover:bg-zinc-200"
           >
@@ -216,17 +221,14 @@ export default function Home() {
         <div className="text-zinc-400 lg:text-2xl md:text-4xl gap-8 pb-2">
           <div>Technial skills:</div>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-2 pt-4">
-          {skillsList.map((ele, idx) => {
-            return (
-              <div key={idx} className="flex flex-row gap-4">
-                <img
-                  src={ele?.logo}
-                  className="w-8"
-                ></img>
-                <span>{ele?.name}</span>
-              </div>
-            );
-          })}
+            {skillsList.map((ele, idx) => {
+              return (
+                <div key={idx} className="flex flex-row gap-4">
+                  <img src={ele?.logo} className="w-8"></img>
+                  <span>{ele?.name}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className="text-zinc-400 lg:text-2xl md:text-4xl gap-8 pb-2 pt-8">
@@ -268,6 +270,7 @@ export default function Home() {
         </div>
       </div>
       <Footer />
+      {loading && <Loader />}
     </>
   );
 }
