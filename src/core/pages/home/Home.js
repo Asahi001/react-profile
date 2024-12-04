@@ -15,6 +15,9 @@ import ReactLogo from "../../assets/images/react.png";
 import AglLogo from "../../assets/images/apg.png";
 import PyLogo from "../../assets/images/python.png";
 import Loader from "../../components/loader";
+import ReactFlow from "../../assets/images/reactflow.png";
+import Alpaca from "../../assets/images/alpaca.png";
+import Profile from "../../assets/images/profile.png";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -22,11 +25,11 @@ export default function Home() {
   const screen = useContext(ScreenResContext);
   const projects = [
     {
+      img: Profile,
       name: "Personal Web Site",
       technologies: "React JS, CSS3, HTML5",
-      year: "2024",
-      desc: "This was the personal project done by my self interest for learning purpose.",
-      role: "Portfolio Web site for profile",
+      desc: "A hobby project to build the portfolio website.",
+      url: "https://my-profile-j.netlify.app/",
     },
     // {
     //   name: "Client Portal",
@@ -42,26 +45,25 @@ export default function Home() {
     //   desc: "Member of development team who build the client portal UI/UX.",
     //   role: "A client portal developed during my service",
     // },
+    // {
+    //   name: "Inbox",
+    //   technologies: "React, HTML, Tailwind CSS",
+    //   desc: "Mail Inbox display.",
+    //   url: "https://in-box-gamma.vercel.app/"
+    // },
     {
-      name: "Calculator",
-      technologies: "React JS, HTML5, Tailwind CSS",
-      year: "2022",
-      desc: "Calculator to do basic calculation primarily done for CSS",
-      role: "A react project i built during my training period",
+      img: Alpaca,
+      name: "Alpaca Cycles",
+      technologies: "React, HTML, CSS, Tailwind CSS",
+      desc: "A Hobby project built to replicate the E-Commerce websites of Selling Bycycles.",
+      url: "https://alpaca-store-j.vercel.app/",
     },
     {
-      name: "Snake Game",
-      technologies: "Python, Turtle, Canvas, Pandas",
-      year: "2024",
-      desc: "Game of snake in which whem we succesfullly eat the food it grows until the game over if we touch boundary or touch its own body.",
-      role: "A game built in python with bounday and tail bite conditions with Turtle library",
-    },
-    {
-      name: "Geography quiz",
-      technologies: "Python, Turtle, Canvas, Pandas",
-      year: "2024",
-      desc: "Game in which we will guess the state of the map and if guessed correct it will display on the map",
-      role: "A quiz game with python canvas and Turtle",
+      img: ReactFlow,
+      name: "React flow.",
+      technologies: "React, Reactflow, Tailwind CSS",
+      desc: "A graphical editor using reactflow library to drag and drop chat module and edit the prompt of the chart message.",
+      url: "https://reactflow-nine.vercel.app/",
     },
   ];
   const skillsList = [
@@ -169,22 +171,26 @@ export default function Home() {
 
       <div className="-mt-16 caseStudies relative group">
         <div className="italic heading2 mb-6 md:pt-26 lg:pt-6">Projects</div>
-        <div className="grid lg:grid-cols-4 grid-flow-row gap-4 md:grid-cols-1">
+        <div className="grid lg:grid-cols-3 grid-flow-row gap-4 md:grid-cols-1">
           {projects.map((ele, index) => (
             <div
               className="border-4 border-zinc-200 p-4 text-xl text-zinc-400 card hover:cursor-pointer hover:bg-zinc-200"
               key={index}
+              onClick={() => {
+                window.open(ele?.url, "_self");
+              }}
             >
               {
-                <div className="lg:text-2xl md:text-4xl font-bold">
-                  {ele.year} - {ele.role}
+                <div className="lg:text-2xl md:text-4xl font-bold border border-black">
+                  {/* {ele?.year} - {ele?.role} */}
+                  <img src={ele?.img} alt="No Image found" className="h-36 w-full"/>
                 </div>
               }{" "}
               <br />
               <div className="lg:text-2xl md:text-4xl">Desc: {ele.desc}</div>
               <br />
               <div className="lg:text-2xl md:text-4xl">
-                Technologies: {ele.technologies}{" "}
+                Technologies: {ele?.technologies}{" "}
               </div>
             </div>
           ))}

@@ -2,57 +2,41 @@ import React from "react";
 import "./Projects.css";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
+import Coffee from "../../assets/images/coffee.png";
+import Stateguess from "../../assets/images/stateguess.png";
+import Quizgame from "../../assets/images/quiz.png";
 
 export default function Projects() {
   const projects = [
     {
+      img: Coffee,
       name: "Coffee Making machine",
       technologies: "Python (OOP, Turtle)",
-      year: "2024",
       desc: "Program which prints resources and profits and display menu of avilable options after selection check for resourse availability and then process money and deduct the resouces consumed at the end",
-      role: "Developer",
     },
     {
-      name: "Hungry Snake",
+      img: Stateguess,
+      name: "Guess States",
       technologies: "Python (OOP, Turtle)",
-      year: "2024",
-      desc: "A virtual simulation of snake game in which the turtles are randomly rendered in a GUI using Turtle module and when collided with food snake grows and if it hits the boundary of the canves or itself its Game over",
-      role: "Developer",
+      desc: "A virtual simulation of game in which we have to guess the states and if its correct it will get displayed on the screen",
     },
     {
+      img: Quizgame,
       name: "Quiz game",
       technologies: "Python (OOP)",
-      year: "2024",
       desc: "set of questiones are loaded in the module promting user for an answer and mappng it with the correct answer and will keep track of correst answers and display at the end of questiones list",
-      role: "Developer",
     },
     {
-      name: "Personal Web Site",
-      technologies: "React JS, CSS3, HTML5",
-      year: "2023",
-      desc: "This was the personal project done by my self interest for learning purpose.",
-      role: "Developer",
-    },
-    {
+      img: "",
       name: "Client Portal",
       technologies: "Angular, Botstrap CSS, HTML5, CSS3",
-      year: "2023",
       desc: "Member of development team who build the client portal user interface.",
-      role: "Developer - Team Member",
     },
     {
+      img: "",
       name: "Client Portal",
       technologies: "React JS, MongoDB, Apollo GraphQL",
-      year: "2022",
       desc: "Member of development team who build the client portal UI/UX.",
-      role: "Developer - Team Member",
-    },
-    {
-      name: "Calculator",
-      technologies: "React JS, HTML5, Tailwind CSS",
-      year: "2022",
-      desc: "Calculator to do basic calculation primarily done for CSS",
-      role: "Developer",
     },
   ];
   return (
@@ -68,7 +52,8 @@ export default function Projects() {
             >
               {
                 <div className="lg:text-2xl md:text-4xl font-bold">
-                  {ele.year} - {ele.role}
+                  {/* {ele.year} - {ele.role} */}
+                  <img src={ele?.img} alt="No Image Found" className="h-36 w-full" />
                 </div>
               }{" "}
               <br />
