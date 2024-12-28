@@ -18,6 +18,7 @@ import Loader from "../../components/loader";
 import ReactFlow from "../../assets/images/reactflow.png";
 import Alpaca from "../../assets/images/alpaca.png";
 import Profile from "../../assets/images/profile.png";
+import {motion} from "framer-motion";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -173,26 +174,31 @@ export default function Home() {
         <div className="italic heading2 mb-6 md:pt-26 lg:pt-6">Projects</div>
         <div className="grid lg:grid-cols-3 grid-flow-row gap-4 md:grid-cols-1">
           {projects.map((ele, index) => (
-            <div
-              className="border-4 border-zinc-200 p-4 text-xl text-zinc-400 card hover:cursor-pointer hover:bg-zinc-200"
+            <motion.div
+              className="border-4 border-zinc-200 p-4 text-xl text-zinc-400 card hover:cursor-pointer"
               key={index}
               onClick={() => {
                 window.open(ele?.url, "_self");
               }}
+              initial={{
+                scale: 1
+              }}
+              whileHover={{
+                scale: 1.05
+              }}
             >
               {
                 <div className="lg:text-2xl md:text-4xl font-bold border border-black">
-                  {/* {ele?.year} - {ele?.role} */}
                   <img src={ele?.img} alt="No Image found" className="h-36 w-full"/>
                 </div>
               }{" "}
               <br />
-              <div className="lg:text-2xl md:text-4xl">Desc: {ele.desc}</div>
+              <div className="lg:text-2xl md:text-4xl text-zinc-400">Desc: {ele.desc}</div>
               <br />
-              <div className="lg:text-2xl md:text-4xl">
+              <div className="lg:text-2xl md:text-4xl text-zinc-400">
                 Technologies: {ele?.technologies}{" "}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         <div className="pt-4 h-16">
